@@ -1,4 +1,4 @@
-import type { Coordinates } from './types';
+import type { Coordinates } from '../types';
 
 export default function getDeviceLocation(): Promise<Coordinates> {
     return new Promise((resolve, reject) => {

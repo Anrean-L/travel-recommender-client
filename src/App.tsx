@@ -1,5 +1,5 @@
 import './App.css';
-import getDeviceLocation from './geolocation';
+import getDeviceLocation from './api/geolocation';
 import { fetchRecommendations } from './api/recommendations';
 import type { RecommendationResponse, Coordinates } from './types';
 import { useRef, useState, useEffect } from 'react';
