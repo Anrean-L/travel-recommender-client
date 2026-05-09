@@ -1,8 +1,10 @@
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
+    color-scheme: light dark;
     margin: 0;
     background: var(--bg);
     color: var(--text);
@@ -42,6 +44,12 @@ body {
     max-width: 900px;
     margin: 0 auto 32px;
     padding: 24px;
+    h2 {
+        margin-bottom: 8px;
+    }
+    p {
+        margin-top: 4px;
+    }
 }
 
 .places {
@@ -50,19 +58,24 @@ body {
 }
 
 .place-list {
+    padding: 20px 0;
     display: grid;
     gap: 16px;
 }
 
 .place-card {
     padding: 20px;
+    p {
+        margin-top: 4px;
+    }
 }
 
 .place-header {
     display: flex;
     justify-content: space-between;
-    gap: 16px;
+    gap: 1rem;
     align-items: start;
+    margin-bottom: 8px;
 }
 
 .place-header h3 {
@@ -86,7 +99,7 @@ body {
     color: var(--muted);
 }
 
-a {
+.place-links a {
     display: inline-block;
     color: var(--primary);
     font-weight: 600;
@@ -97,7 +110,7 @@ a {
     transition: all 0.2s;
 }
 
-a:hover {
+.place-links a:hover {
     color: var(--primary-hover);
     border-color: var(--primary-hover);
 }
@@ -109,4 +122,11 @@ a:hover {
 
 .error {
     color: var(--danger);
+}
+
+.place-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 12px;
 }

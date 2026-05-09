@@ -25,15 +25,19 @@ function formatWindDirection(degrees: number): string {
         return 'SE';
     }
     if (degrees <= 202.5) {
-        return "S";
+        return 'S';
     }
     if (degrees < 247.5) {
-        return "SW";
+        return 'SW';
     }
     if (degrees <= 292.5) {
-        return "W";
+        return 'W';
     }
     return 'NW';
+}
+
+function buildGoogleMapsUrl(lat: number, lon: number): string {
+    return `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
 }
 
 function App() {
@@ -83,7 +87,9 @@ function App() {
                 </p>
             </section>
 
-            {isLoading && <p className='loading'>Searching for places nearby...</p>}
+            {isLoading && (
+                <p className='loading'>Searching for places nearby...</p>
+            )}
 
             {error && <p className='error'>{error}</p>}
 
@@ -99,7 +105,8 @@ function App() {
                             {Math.round(data.weather.apparent_temperature)}°C
                         </p>
                         <p>
-                            Wind: {Math.round(data.weather.wind_speed)} km/h · {formatWindDirection(data.weather.wind_direction)}
+                            Wind: {Math.round(data.weather.wind_speed)} km/h ·{' '}
+                            {formatWindDirection(data.weather.wind_direction)}
                             {}
                         </p>
                     </section>
@@ -130,15 +137,26 @@ function App() {
                                             {item.place.address}
                                         </p>
                                     )}
-
-                                    {item.place.website && (
+                                    <div className='place-links'>
                                         <a
-                                            href={item.place.website}
+                                            href={buildGoogleMapsUrl(
+                                                item.place.coords.lat,
+                                                item.place.coords.lon,
+                                            )}
                                             target='_blank'
                                             rel='noreferrer'>
-                                            Website
+                                            Open in map
                                         </a>
-                                    )}
+
+                                        {item.place.website && (
+                                            <a
+                                                href={item.place.website}
+                                                target='_blank'
+                                                rel='noreferrer'>
+                                                Website
+                                            </a>
+                                        )}
+                                    </div>
                                 </article>
                             ))}
                         </div>
