@@ -5,7 +5,7 @@ export type Coordinates = {
 
 export type WeatherInfo = {
     temperature: number;
-    apparent_temperatur: number;
+    apparent_temperature: number;
     relative_humidity: number;
     rain: number;
     snowfall: number;
