@@ -5,7 +5,6 @@
 
 body {
     color-scheme: light dark;
-    margin: 0;
     background: var(--bg);
     color: var(--text);
     font-family: Inter, system-ui, sans-serif;
@@ -19,17 +18,26 @@ body {
 .hero {
     max-width: 900px;
     margin: 0 auto 32px;
-}
 
-.hero h1 {
-    font-size: 3rem;
-    line-height: 1;
-    margin: 0 0 16px;
-}
+    h1 {
+        font-size: clamp(1.75rem, 8vw, 3rem);
+        line-height: 1;
+        margin-bottom: 16px;
+    }
 
-.hero p {
-    color: var(--muted);
-    font-size: 1.125rem;
+    .hero-subtitle {
+        color: var(--muted);
+        font-size: clamp(1rem, 3vw, 1.125rem);
+        color: var(--muted);
+        line-height: 1.5;
+    }
+    .location-hint {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.4;
+        opacity: 0.85;
+    }
 }
 
 .weather-card,
@@ -76,19 +84,17 @@ body {
     gap: 1rem;
     align-items: start;
     margin-bottom: 8px;
-}
-
-.place-header h3 {
-    margin: 0;
-    font-size: 1.375rem;
-}
-
-.place-header span {
-    background: var(--primary-soft);
-    color: var(--primary);
-    padding: 6px 10px;
-    border-radius: 999px;
-    font-size: 0.75rem;
+    h3 {
+        font-size: 1.375rem;
+    }
+    span {
+        background: var(--primary-soft);
+        color: var(--primary);
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        flex-shrink: 0;
+    }
 }
 
 .reason {
@@ -97,6 +103,19 @@ body {
 
 .muted {
     color: var(--muted);
+}
+
+.place-card,
+.place-card * {
+    min-width: 0;
+}
+
+.place-card h3,
+.place-card p,
+.place-card a,
+.reason,
+.muted {
+    overflow-wrap: anywhere;
 }
 
 .place-links a {

@@ -81,9 +81,12 @@ function App() {
         <main className='page'>
             <section className='hero'>
                 <h1>Place recommender</h1>
-                <p>
+                <p className='hero-subtitle'>
                     Recommendations based on your location, weather and walking
-                    distance.
+                    distance. 
+                </p>
+                <p className='location-hint'>
+                    For best results, enable device location.
                 </p>
             </section>
 
