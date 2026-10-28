@@ -6,7 +6,7 @@ Built with React 19, TypeScript 6, Vite 8, and CSS.
 
 ## Getting started
 
-You will need Node.js 24, pnpm, and a running backend that provides a `GET /recommend` endpoint. This repository contains the frontend only.
+You will need Node.js 24, pnpm, and a running [backend](https://github.com/Anrean-L/travel-recommender-backend) that provides a `GET /recommend` endpoint. This repository contains the frontend only.
 
 ```bash
 pnpm install --frozen-lockfile
